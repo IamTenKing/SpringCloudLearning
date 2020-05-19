@@ -9,9 +9,14 @@ import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
+
+/**
+ * ribbon整合
+ */
 @SpringBootApplication
 @EnableEurekaClient
 @EnableDiscoveryClient
+//开启短路器
 @EnableHystrix
 public class ServiceRibbonApplication {
 

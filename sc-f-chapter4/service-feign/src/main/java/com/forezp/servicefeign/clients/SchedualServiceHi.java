@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
  *
  * @author fangzhipeng
  * create 2018-07-09
+ *
+ * Feign是自带断路器的，在D版本的Spring Cloud之后，它没有默认打开。需要在配置文件中配置打开它，在配置文件加以下代码：
+ *feign.hystrix.enabled=true
+ *
  **/
 @FeignClient(value = "service-hi",fallback = SchedualServiceHiHystric.class)
 public interface SchedualServiceHi {

@@ -7,3 +7,8 @@ server:
 spring:
   application:
     name: service-ribbon
+
+hystrix:
+  metrics:
+    enabled: true
+    polling-interval-ms:
