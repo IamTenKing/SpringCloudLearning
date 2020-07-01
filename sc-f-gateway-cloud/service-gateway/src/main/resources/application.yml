@@ -17,6 +17,7 @@ spring:
           - Path=/demo/**
         filters:
           - StripPrefix=1
+          # RequestTimeGatewayFilterFactory的名字前面部分，true就是自定义的key的值
           - RequestTime=true
 
 eureka:

@@ -12,6 +12,9 @@ import java.util.List;
 /**
  * Email miles02@163.com
  *
+ * 多时候我们更希望在配置文件中配置Gateway Filter,所以我们可以自定义过滤器工厂实现。
+ * 自定义过滤器工厂需要继承AbstractGatewayFilterFactory
+ *
  * @author fangzhipeng
  * create 2018-11-16
  **/
@@ -35,6 +38,7 @@ public class RequestTimeGatewayFilterFactory extends AbstractGatewayFilterFactor
     public GatewayFilter apply(Config config) {
         return (exchange, chain) -> {
             exchange.getAttributes().put(REQUEST_TIME_BEGIN, System.currentTimeMillis());
+
             return chain.filter(exchange).then(
                     Mono.fromRunnable(() -> {
                         Long startTime = exchange.getAttribute(REQUEST_TIME_BEGIN);
